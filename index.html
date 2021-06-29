@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navBar'>
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Project Title</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,8 @@
 
   <div class="jumbotron">
     <h1 class="display-4">Project Title</h1>
-    <p class="lead">Project Summary</p>
+    <p class="lead">Please make sure your seatbelts are fastened, and keep your arms and legs inside the vehicle at all times.</p>
+    <p class="lead">Sit back, relax, and enjoy the ride! </p>
     <hr>
     <p>Click below to meet the members of the team that put this all together.</p>
     <p class="lead">
@@ -58,17 +59,35 @@
   <br></br>
 
   <div class="container">
-  <div class="row">
-    <div class="col">
-      <h2> Welcome! </h2>
-      <hr>
-    </div>
-    <div class="col">
-      <h2> Random RollerCoasters! </h2>
-      <hr>
+    <div class="row">
+        <div class="col" id= 'welcomeMat'>
+        <h2> Welcome! </h2>
+        <hr>
+        </div>
+        <div class="col" id="buttonRandomizer">
+        <h2> Random RollerCoasters! </h2>
+        <hr>
+        <a href="/scrape" <button type="button" class="btn btn-primary btn-lg">Rollercoaster Randomizer</button></a>
+        </div>
     </div>
   </div>
 
+  <br></br>
+  <br>/<br>
+  
+  <footer class="page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <p>Thank you for catching a ride with us!</p>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+    </div>
+    <div class="footer-copyright text-center py-3">Project Github: 
+        <a href="https://github.com/MorgaineB/Project2"> github.com</a>
+    </div>
+    </footer>
+    
 </body>
 
 </html>

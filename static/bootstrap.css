@@ -51,6 +51,10 @@
   }
 }
 
+#navBar {
+  background-color: rgba(255,255,212,0.66);
+}
+
 .jumbotron {
   width: 100%;
   padding-left: 100px;
@@ -62,8 +66,18 @@
   border-radius: 60px;
   text-align: center;
   align-items: center;
-  border: #78c2ad;
-  background-color: #f3969a;
+  border: 8px double #78c2ad;
+  background-color:rgba(255,255,212,0.66);
+}
+
+#buttonRandomizer {
+  align-items: center;
+  text-align: center;
+}
+
+#welcomeMat {
+  align-items: center;
+  text-align: center;
 }
 
 body {
@@ -73,7 +87,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #888;
-  background-color: #fff;
+  background-color: peachpuff;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
