@@ -1,5 +1,4 @@
 # Project2
-Project 2
 
 Project Requirements:
 1. Your visualization must include a Python Flask–powered API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.). 
