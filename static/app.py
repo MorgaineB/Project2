@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-import scrapedrandomcoaster
+import static.ScrapedRandomRollerCoaster
 
 app = Flask(__name__)
 
