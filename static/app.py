@@ -13,7 +13,7 @@ def home():
 
 @app.route("/scrape")
 def scrape():
-    random_data = scrapedrandomcoaster.scrape()
+    random_data = static.ScrapedRandomRollerCoaster.scrape()
     mongo.db.coasterz.update({}, random_data, upsert=True)
     
     return redirect("/")
