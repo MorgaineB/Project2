@@ -66,16 +66,23 @@
         <h2> Welcome! </h2>
         <hr>
         </div>
+
         <div class="col" id="buttonRandomizer">
-        <h2> Random RollerCoasters! </h2>
-        <hr>
-        <a href="/scrape" <button type="button" class="btn btn-primary btn-lg">Rollercoaster Randomizer</button></a>
+            <h2> Random RollerCoasters! </h2>
+            <hr>
+            <img src="{{ random_data.random_image}}" class="img-responsive" alt="Randomized Image">
+            <h4 class="card-title"> Rollercoaster: {{ random_data.random_name }} </h4>
+            <h4 class="card-title"> Park: {{ random_data.random_park }} </h4>
+            <h4 class="card-title"> City: {{ random_data.random_city }}
+            <h4 class="card-title"> Country: {{ random_data.random_country }}
+            <h4 class="card-title"> Nation: {{ random_data.random_nation }}
+            <a href="/scrape" <button type="button" class="btn btn-primary btn-lg">Rollercoaster Randomizer</button></a>
         </div>
     </div>
   </div>
 
   <br></br>
-  <br>/<br>
+  <br></br>
   
   <footer class="page-footer font-small blue pt-4">
     <div class="container-fluid text-center text-md-left">

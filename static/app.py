@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-import static.ScrapedRandomRollerCoaster
+import ScrapedRandomRollerCoaster 
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def home():
 
 @app.route("/scrape")
 def scrape():
-    random_data = static.ScrapedRandomRollerCoaster.scrape()
+    random_data = ScrapedRandomRollerCoaster.scrape()
     mongo.db.coasterz.update({}, random_data, upsert=True)
     
     return redirect("/")
