@@ -22,7 +22,7 @@ def scrape():
 
     soup.find_all('a')
 
-    image_url = soup.find('a')['href']
+    image_url = soup.find('a')['data-url']
     featured_image_url = f'{url}{image_url}'
     random_coaster['random_image'] = featured_image_url
 
