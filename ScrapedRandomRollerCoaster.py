@@ -41,7 +41,8 @@ def scrape():
         print(f'{coaster_name} at {park_name} located in {park_city}, {park_state}, {park_country}, {park_nation}')
         random_coaster['random_name'] = coaster_name
         random_coaster['random_park'] = park_name
-        random_coaster['random_city'] = park_state
+        random_coaster['random_city'] = park_city
+        random_coaster['random_state'] = park_state
         random_coaster['random_country'] = park_country
         random_coaster['random_nation'] = park_nation
     except AttributeError:
@@ -50,15 +51,20 @@ def scrape():
             print(f'{coaster_name} at {park_name} located in {park_city}, {park_state}, {park_country}')
             random_coaster['random_name'] = coaster_name
             random_coaster['random_park'] = park_name
-            random_coaster['random_city'] = park_state
+            random_coaster['random_city'] = park_city
+            random_coaster['random_state'] = park_state
             random_coaster['random_country'] = park_country
+            random_coaster['random_nation'] = 'null'
         except AttributeError:
             pass
             try:
                 print(f'{coaster_name} at {park_name} located in {park_city}, {park_state}')
                 random_coaster['random_name'] = coaster_name
                 random_coaster['random_park'] = park_name
-                random_coaster['random_city'] = park_state
+                random_coaster['random_city'] = park_city
+                random_coaster['random_state'] = park_state
+                random_coaster['random_country'] = 'null'
+                random_coaster['random_nation'] = 'null'
             except AttributeError:
                 pass
 
