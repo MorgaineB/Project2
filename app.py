@@ -9,14 +9,9 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/randomcoasterDB")
 @app.route("/")
 def home():
     random_coaster = mongo.db.random_coaster.find_one()
-    return render_template("index.html", random_data=random_coaster)
-
-@app.route("/scrape")
-def scrape():
     random_data = ScrapedRandomRollerCoaster.scrape()
     mongo.db.random_coaster.update({}, random_data, upsert=True)
-    
-    return redirect("/")
+    return render_template("index.html", random_data=random_coaster)
 
 if __name__ == "__main__":
     app.run(debug=True)

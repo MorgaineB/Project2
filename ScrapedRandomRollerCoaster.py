@@ -8,7 +8,7 @@ import pandas as pd
 
 def scrape():
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     random_coaster = {}
 
@@ -69,5 +69,4 @@ def scrape():
                 pass
 
     browser.quit()
-    print(random_coaster)
     return(random_coaster)
