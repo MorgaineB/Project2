@@ -647,6 +647,13 @@ progress {
   color: #888;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .container,
 .container-fluid,
 .container-sm,
@@ -660,6 +667,7 @@ progress {
   margin-right: auto;
   margin-left: auto;
 }
+
 
 @media (min-width: 576px) {
   .container, .container-sm {
