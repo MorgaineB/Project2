@@ -12,7 +12,7 @@ var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
 var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
 var svg = d3
-  .select("body")
+  .select(".chartist-data")
   .append("svg")
   .attr("height", svgHeight)
   .attr("width", svgWidth);
@@ -22,21 +22,53 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-d3.csv("./WebScraping/CSVs/rcdb_w_years_dtformat.csv", function(coasterData) {
-    var coasterName = coasterData['Roller Coaster'];
-    var coasterPark = coasterData['Amusement Park'];
+
+
+d3.json("../WebScraping/fulldatajsons/rcdbjson_dtformat_updated.json").then((importedData) => {
+    var coasterData = importedData;
+
+    //var coasterName = coasterData['Roller Coaster'];
+    //var coasterPark = coasterData['Amusement Park'];
     var coasterType = coasterData['Type'];
     var coasterDesign = coasterData['Design'];
     var coasterStatus = coasterData['Status'];
-    var coasterOpened = coasterData['Opened'];
+    //var coasterOpened = coasterData['Opened'];
 
     //Pie Chart 1 
-    var suspended = coasterDesign['Suspended'];
-    var sitdown = coasterDesign['Sit Down'];
+    var suspendedCounter = 0;
+    var sitdownCounter = 0;
+    var invertedCounter = 0;
+    var flyingCounter = 0;
+    var wingCounter = 0;
+    var bobsledCounter = 0;
+    var standUpCounter = 0;
+    var pipelineCounter = 0;
+
+    for (var i = 0; i < coasterData.length; i++) {
+        if (coasterDesign[i] === 'Suspended') {
+            suspendedCounter = suspendedCounter + 1;
+        } else if (coasterDesign[i] === 'Sit Down') {
+            sitdownCounter = sitdownCounter + 1;
+        } else if (coasterDesign[i] === 'Inverted') {
+            invertedCounter = invertedCounter + 1; 
+        } else if (coasterDesign[i] === 'Flying') {
+            flyingCounter = flyingCounter + 1;
+        } else if (coasterDesign[i] === 'Wing') {
+            wingCounter = wingCounter + 1;
+        } else if (coasterDesign[i] === 'Bobsled') {
+            bobsledCounter == bobsledCounter + 1;
+        } else if (coasterDesign[i] === 'Stand Up') {
+            standUpCounter == standUpCounter + 1;
+        } else if (coasterDesign === 'Pipeline') {
+            pipelineCounter = pipelineCounter + 1;
+        } else {
+
+        }
+    };
 
     var trace1 = {
-        labels: [suspended, sitdown],
-        values: coasterData['Design'],
+        labels: ['Suspended', 'Sit Down', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline'],
+        values: [suspendedCounter, sitdownCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter],
         type: 'pie'
     };
      
@@ -46,46 +78,17 @@ d3.csv("./WebScraping/CSVs/rcdb_w_years_dtformat.csv", function(coasterData) {
      title: "Sit Down vs. Suspended",
     };
      
-    Plotly.newPlot("plot", data1, layout1);
+    Plotly.newPlot("plot1", data1, layout1);
 
-    //Pie Chart 2 
-    var steel = coasterType['Steel'];
-    var wood = coasterType['Wood'];
+    console.log('Hello testing')
 
-    var trace2 = {
-        labels: [steel, wood],
-        values: coasterData['Type'],
-        type: 'pie'
-    };
-     
-    var data2 = [trace2];
-     
-    var layout2 = {
-     title: "Steel vs. Wood",
-    };
-     
-    Plotly.newPlot("plot", data2, layout2);
+    
 
-    //Pie Chart 3 
-    var operating = coasterStatus['Operating'];
-    var relocated = coasterStatus['Relocated'];
-    var noStatus = coasterStatus[''];
 
-    var trace3 = {
-        labels: [operating, relocated, noStatus],
-        values: coasterData['Status'],
-        type: 'pie'
-    };
-     
-    var data3 = [trace3];
-     
-    var layout3 = {
-     title: "Steel vs. Wood",
-    };
-     
-    Plotly.newPlot("plot", data3, layout3);
 
 });
 
 
 // for (var i = 0; i < coasterData.length; i++) {}
+
+
