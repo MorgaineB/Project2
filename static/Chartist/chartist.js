@@ -22,19 +22,10 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
+d3.json("../WebScraping/fulldatajsons/chartist.json").then((coasterData) => {
+    console.log(coasterData);
+    console.log(coasterData.length);
 
-
-d3.json("../WebScraping/fulldatajsons/rcdbjson_dtformat_updated.json").then((importedData) => {
-    var coasterData = importedData;
-
-    //var coasterName = coasterData['Roller Coaster'];
-    //var coasterPark = coasterData['Amusement Park'];
-    var coasterType = coasterData['Type'];
-    var coasterDesign = coasterData['Design'];
-    var coasterStatus = coasterData['Status'];
-    //var coasterOpened = coasterData['Opened'];
-
-    //Pie Chart 1 
     var suspendedCounter = 0;
     var sitdownCounter = 0;
     var invertedCounter = 0;
@@ -44,51 +35,71 @@ d3.json("../WebScraping/fulldatajsons/rcdbjson_dtformat_updated.json").then((imp
     var standUpCounter = 0;
     var pipelineCounter = 0;
 
+    function printNumber(number) {
+        console.log(number);
+    }
+    
     for (var i = 0; i < coasterData.length; i++) {
-        if (coasterDesign[i] === 'Suspended') {
+        if (coasterData[i] === 'Suspended') {
             suspendedCounter = suspendedCounter + 1;
-        } else if (coasterDesign[i] === 'Sit Down') {
+        } else if (coasterData[i] === 'Sit Down') {
             sitdownCounter = sitdownCounter + 1;
-        } else if (coasterDesign[i] === 'Inverted') {
+        } else if (coasterData[i] === 'Inverted') {
             invertedCounter = invertedCounter + 1; 
-        } else if (coasterDesign[i] === 'Flying') {
+        } else if (coasterData[i] === 'Flying') {
             flyingCounter = flyingCounter + 1;
-        } else if (coasterDesign[i] === 'Wing') {
+        } else if (coasterData[i] === 'Wing') {
             wingCounter = wingCounter + 1;
-        } else if (coasterDesign[i] === 'Bobsled') {
+        } else if (coasterData[i] === 'Bobsled') {
             bobsledCounter == bobsledCounter + 1;
-        } else if (coasterDesign[i] === 'Stand Up') {
+        } else if (coasterData[i] === 'Stand Up') {
             standUpCounter == standUpCounter + 1;
-        } else if (coasterDesign === 'Pipeline') {
+        } else if (coasterData === 'Pipeline') {
             pipelineCounter = pipelineCounter + 1;
         } else {
 
         }
     };
 
+    coasterData.forEach(printNumber);
+    console.log(suspendedCounter);
+
+    
     var trace1 = {
         labels: ['Suspended', 'Sit Down', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline'],
-        values: [suspendedCounter, sitdownCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter],
+        values: coasterData.map(row => row.Type),
         type: 'pie'
-    };
-     
+    }
+
     var data1 = [trace1];
-     
-    var layout1 = {
-     title: "Sit Down vs. Suspended",
+
+    var layout1= {
+        title: 'Different Types of Roller Coasters'
     };
-     
+
     Plotly.newPlot("plot1", data1, layout1);
 
     console.log('Hello testing')
 
+    //var coasterName = coasterData['Roller Coaster'];
+    //var coasterPark = coasterData['Amusement Park'];
+    var coasterType = coasterData['Type'];
+    var coasterDesign = coasterData['Design'];
+    var coasterStatus = coasterData['Status'];
+    //var coasterOpened = coasterData['Opened'];
+
+    // Pie Chart 1 
     
+
+    // var suspended = coasterDesign['Suspended']
+    // var sitdown = coasterDesign['Sit Down']
 
 
 
 });
 
 
-// for (var i = 0; i < coasterData.length; i++) {}
+// // for (var i = 0; i < coasterData.length; i++) {}
 
+// // relocated status should be gone!
 
