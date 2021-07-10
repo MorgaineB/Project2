@@ -50,35 +50,45 @@
     scroll-behavior: smooth;
   }
 }
-#sus {
+
+.hsix {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #5a5a5a;
+}
+
+.firstUp {
   color: #d70206
 }
 
-#inv {
+.secondUp {
   color: #f05b4f
 }
 
-#fly {
+.thirdUp {
   color: #f4c63d
 }
 
-#win{
+.fourthUp{
   color: #d17905
 }
 
-#bobs {
+.fifthUp {
   color: #453d3f
 }
 
-#sta {
+.sixthUp{
   color: #59922b
 }
 
-#pip {
+.seventhUp {
   color: #0544d3
 }
 
-#sitd {
+.eighthUp {
   color: #6b0392
 }
 
@@ -98,6 +108,25 @@
   align-items: center;
   border: 8px double #78c2ad;
   background-color:rgba(255,255,212,0.66);
+}
+
+.jumbotron2 {
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  border-radius: 60px;
+  text-align: center;
+  align-items: center;
+  border: 8px double #78c2ad;
+  background-color:rgba(255,255,212,0.66);
+}
+
+.jumbotron2 p {
+  display: inline-block;
+  vertical-align: top;
 }
 
 #buttonRandomizer {

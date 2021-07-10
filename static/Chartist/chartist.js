@@ -1,25 +1,3 @@
-var svgWidth = 960;
-var svgHeight = 660;
-
-var chartMargin = {
-  top: 30,
-  right: 30,
-  bottom: 30,
-  left: 30
-};
-
-var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
-var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
-
-var svg = d3
-  .select(".chartist-data")
-  .append("svg")
-  .attr("height", svgHeight)
-  .attr("width", svgWidth);
-
-var chartGroup = svg.append("g")
-  .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
-
 function init() {
     d3.json("../WebScraping/fulldatajsons/chartist.json").then((coasterData) => {
         var suspendedCounter = 0;
@@ -67,7 +45,7 @@ function init() {
         console.log(`PipelineCoasters: ${pipelineCounter}`);
         
         var chart = new Chartist.Pie('.ct-chart', {
-            labels: ['Suspended', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline', 'Sit Down'],
+            labels: ['Suspended: 1%', 'Inverted: 2.3%', 'Flying: 0.4%', 'Wing: 0.4%', 'Bobsled: 0.3%', 'Stand Up: 0.2%', 'Pipeline: 0.1%', 'Sit Down: 95.2%'],
             series: [suspendedCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter, sitdownCounter],
         }, {
         donut: true,
@@ -115,6 +93,29 @@ function init() {
             });
 
     })
+    var designed = [{
+        title: " "
+    },{
+        title: "Because of how the labels overlapped, the legend is described below."
+
+    },{
+        title:"Suspended(red) 1%, Inverted(peach): 2.3%, Flying(yellow): 0.4%, Wing(orange): 0.4%"
+    },{
+        title:"Bobsled(black): 0.3%, Stand Up(green): 0.2%, Pipeline(blue): 0.1%, Sit Down(purple): 95.2% "
+    },{
+        title:"Be sure to check the glossary for any terminology you don't understand."
+    }]
+
+    d3.select("thead")
+    .selectAll("tr")
+    .data(designed)
+    .enter()
+    .append("tr")
+    .html(function(d) {
+        return `<td>${d.title}</td>`;
+
+  });
+
 }
 
 init();
@@ -140,7 +141,6 @@ function getData() {
 
         
         function designCounter(testCounter) {
-            console.log('Test Before!')
             for (var i = 0; i < testCounter.length; i++) {
                 var designer = testCounter[i]['Design'];
 
@@ -175,50 +175,74 @@ function getData() {
         console.log(`PipelineCoasters: ${pipelineCounter}`);
         
         var chart = new Chartist.Pie('.ct-chart', {
-            labels: ['Suspended', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline', 'Sit Down'],
+            labels: ['Suspended: 1%', 'Inverted: 2.3%', 'Flying: 0.4%', 'Wing: 0.4%', 'Bobsled: 0.3%', 'Stand Up: 0.2%', 'Pipeline: 0.1%', 'Sit Down: 95.2%'],
             series: [suspendedCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter, sitdownCounter],
         }, {
         donut: true,
+        showLabel: false
         });
         
         chart.on('draw', function(data) {
-        if(data.type === 'slice') {
-            var pathLength = data.element._node.getTotalLength();
+            if(data.type === 'slice') {
+                var pathLength = data.element._node.getTotalLength();
 
-            data.element.attr({
-            'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-            });
-        
-            var animationDefinition = {
-            'stroke-dashoffset': {
-                id: 'anim' + data.index,
-                dur: 1000,
-                from: -pathLength + 'px',
-                to:  '0px',
-                easing: Chartist.Svg.Easing.easeOutQuint,
-                fill: 'freeze'
-            }
-            };
-        
-            if(data.index !== 0) {
-            animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
-            }
-
-            data.element.attr({
-            'stroke-dashoffset': -pathLength + 'px'
-            });
-
-            data.element.animate(animationDefinition, false);
-        }
-            });
+                data.element.attr({
+                'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+                });
             
-            chart.on('created', function() {
+                var animationDefinition = {
+                    'stroke-dashoffset': {
+                        id: 'anim' + data.index,
+                        dur: 1000,
+                        from: -pathLength + 'px',
+                        to:  '0px',
+                        easing: Chartist.Svg.Easing.easeOutQuint,
+                        fill: 'freeze'
+                    }
+                };
+            
+                if(data.index !== 0) {
+                    animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+                }
+
+                data.element.attr({
+                    'stroke-dashoffset': -pathLength + 'px'
+                });
+
+                data.element.animate(animationDefinition, false);
+            }
+        });
+            
+        chart.on('created', function() {
             if(window.__anim21278907124) {
                 clearTimeout(window.__anim21278907124);
                 window.__anim21278907124 = null;
             }
             window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
             });
+
+            var designed = [{
+                title: " "
+            },{
+                title: "Because of how the labels overlapped, the legend is described below."
+        
+            },{
+                title:"Suspended(red) 1%, Inverted(peach): 2.3%, Flying(yellow): 0.4%, Wing(orange): 0.4%"
+            },{
+                title:"Bobsled(black): 0.3%, Stand Up(green): 0.2%, Pipeline(blue): 0.1%, Sit Down(purple): 95.2% "
+            },{
+                title:"Be sure to check the glossary for any terminology you don't understand."
+            }]
+        
+            d3.select("thead")
+            .selectAll("tr")
+            .data(designed)
+            .enter()
+            .append("tr")
+            .html(function(d) {
+                return `<td>${d.title}</td>`;
+        
+          });
     }
     else if (dataset == 'typePiePlot') {
         var steelCounter = 0;
@@ -240,15 +264,10 @@ function getData() {
         typeCounter(coasterData);
         console.log(`Steel Coasters: ${steelCounter}`);
         console.log(`Wood Coasters: ${woodCounter}`);
-        
-        var data = {
-            labels: ['Steel', 'Wood'],
-            series: [steelCounter, woodCounter],
-        }
 
         var chart = new Chartist.Pie('.ct-chart', {
-            labels: ['Steel', 'Wood'],
-            series: [steelCounter, woodCounter],
+            labels: ['Wood 12.6%', 'Steel: 87.4%'],
+            series: [woodCounter, steelCounter],
             }, {
             donut: true,
         });
@@ -284,13 +303,34 @@ function getData() {
             }
               });
               
-              chart.on('created', function() {
-                if(window.__anim21278907124) {
-                  clearTimeout(window.__anim21278907124);
-                  window.__anim21278907124 = null;
-                }
-                window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
-              }); 
+            chart.on('created', function() {
+            if(window.__anim21278907124) {
+                clearTimeout(window.__anim21278907124);
+                window.__anim21278907124 = null;
+            }
+            window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+            }); 
+            var typed = [{
+                title: " "
+            },{
+                title: "Steel: 87.4%, Wood: 12.6%"
+            },{
+                title:"Be sure to check the glossary for any terminology you don't understand."
+            }]
+
+            d3.select("thead")
+            .selectAll("tr")
+            .remove()
+            
+            d3.select("thead")
+            .selectAll("tr")
+            .data(typed)
+            .enter()
+            .append("tr")
+            .html(function(d) {
+                return `<td>${d.title}</td>`;
+        
+          });
 
         }
         else if (dataset == 'statusPiePlot') {
@@ -330,9 +370,9 @@ function getData() {
             console.log(`Else: ${unknownCounter}`);
 
             var chart = new Chartist.Pie('.ct-chart', {
-                labels: ['Operating Coasters', 'Under Construction Coasters', 'Standing but Not Operating Coasters', 'In Storage Coasters', 'Relocated Coasters', 'Unknown Coasters'],
-                series: [operatingCounter, constructionCounter, sbnoCounter, storageCounter, relocatedCounter, unknownCounter],
-            }, {
+                labels: ['Under Construction Coasters', 'Standing but Not Operating Coasters', 'In Storage Coasters', 'Relocated Coasters', 'Operating Coasters'],
+                series: [constructionCounter, sbnoCounter, storageCounter, relocatedCounter, operatingCounter],
+                }, {
                 donut: true,
                 });
                 
@@ -364,16 +404,41 @@ function getData() {
                     });
         
                     data.element.animate(animationDefinition, false);
-                }
-                  });
-                  
-                  chart.on('created', function() {
-                    if(window.__anim21278907124) {
-                      clearTimeout(window.__anim21278907124);
-                      window.__anim21278907124 = null;
                     }
-                    window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
-                  }); 
+                });
+                  
+                chart.on('created', function() {
+                if(window.__anim21278907124) {
+                    clearTimeout(window.__anim21278907124);
+                    window.__anim21278907124 = null;
+                }
+                window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+                }); 
+                var statused = [{
+                title: " "
+                },{
+                    title: "Operating: 53.6%, Under Construction: 2.3%, Standing but Not Operating: 1.8%"
+                },{
+                    title: "In Storage: 0.1%, Relocated: 9.1%, Not Featured: 33%"
+                },{
+                    title: "Not featured was ommitted in the construction of the donut chart to expand on the known data."
+                },{
+                    title:"Be sure to check the glossary for any terminology you don't understand."
+                }]
+                    
+                d3.select("thead")
+                .selectAll("tr")
+                .remove()
+                
+                d3.select("thead")
+                .selectAll("tr")
+                .data(statused)
+                .enter()
+                .append("tr")
+                .html(function(d) {
+                    return `<td>${d.title}</td>`;
+            
+              });
         }
     })
 }
