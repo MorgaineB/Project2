@@ -1,3 +1,25 @@
+var svgWidth = 960;
+var svgHeight = 660;
+
+var chartMargin = {
+  top: 30,
+  right: 30,
+  bottom: 30,
+  left: 30
+};
+
+var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
+var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
+
+var svg = d3
+  .select(".chartist-data")
+  .append("svg")
+  .attr("height", svgHeight)
+  .attr("width", svgWidth);
+
+var chartGroup = svg.append("g")
+  .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
+
 function init() {
     d3.json("../WebScraping/fulldatajsons/chartist.json").then((coasterData) => {
         var suspendedCounter = 0;
@@ -9,7 +31,6 @@ function init() {
         var standUpCounter = 0;
         var pipelineCounter = 0;
 
-        
         function designCounter(testCounter) {
             console.log('Test Before!')
             for (var i = 0; i < testCounter.length; i++) {
@@ -44,61 +65,54 @@ function init() {
         console.log(`Bobsled Coasters: ${bobsledCounter}`);
         console.log(`Stand Up Coasters: ${standUpCounter}`);
         console.log(`PipelineCoasters: ${pipelineCounter}`);
-          
+        
         var chart = new Chartist.Pie('.ct-chart', {
             labels: ['Suspended', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline', 'Sit Down'],
             series: [suspendedCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter, sitdownCounter],
         }, {
-            donut: true,
-            showLabel: false,
-            plugins: [
-                Chartist.plugins.fillDonut({
-                    items: [{
-                        content: '<h3>Different Roller Coaster Designs</h3><br></br><h2 id=sus>Suspended</h2><br></br><h2 id=inv>Inverted</h2><br></br><h2 id=fly>Flying</h2><br></br><h2 id=win>Wing</h2><br></br><h2 id=bobs>Bobsled</h2><br></br><h2 id=sta>Stand Up</h2><br></br><h2 id=pip>Pipeline</h2><br></br><h2 id=sitd>Sit Down</h2>',
+        donut: true,
+        showLabel: false,
 
-                    }]
-                })
-            ],
         });
         
         chart.on('draw', function(data) {
-            if(data.type === 'slice' && data.index === 0) {
-                var pathLength = data.element._node.getTotalLength();
+        if(data.type === 'slice') {
+            var pathLength = data.element._node.getTotalLength();
 
-                data.element.attr({
-                    'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-                });
-            
-                var animationDefinition = {
-                    'stroke-dashoffset': {
-                        id: 'anim' + data.index,
-                        dur: 1200,
-                        from: -pathLength + 'px',
-                        to:  '0px',
-                        easing: Chartist.Svg.Easing.easeOutQuint,
-                        fill: 'freeze'
-                    }
-                };
-            
-                if(data.index !== 0) {
-                animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
-                }
-
-                data.element.attr({
-                    'stroke-dashoffset': -pathLength + 'px'
-                });
-
-                data.element.animate(animationDefinition, true);
+            data.element.attr({
+            'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+            });
+        
+            var animationDefinition = {
+            'stroke-dashoffset': {
+                id: 'anim' + data.index,
+                dur: 1000,
+                from: -pathLength + 'px',
+                to:  '0px',
+                easing: Chartist.Svg.Easing.easeOutQuint,
+                fill: 'freeze'
             }
-        });
-          
-        chart.on('created', function() {
-        if(window.__anim21278907124) {
-            clearTimeout(window.__anim21278907124);
-            window.__anim21278907124 = null;
+            };
+        
+            if(data.index !== 0) {
+            animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+            }
+
+            data.element.attr({
+            'stroke-dashoffset': -pathLength + 'px'
+            });
+
+            data.element.animate(animationDefinition, false);
         }
-        window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
-        });
+            });
+            
+            chart.on('created', function() {
+            if(window.__anim21278907124) {
+                clearTimeout(window.__anim21278907124);
+                window.__anim21278907124 = null;
+            }
+            window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+            });
 
     })
 }
@@ -165,34 +179,25 @@ function getData() {
             series: [suspendedCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter, sitdownCounter],
         }, {
         donut: true,
-        showLabel: false,
-        plugins: [
-            Chartist.plugins.fillDonut({
-                items: [{
-                    content: '<h3>Different Roller Coaster Designs</h3><br></br><h2 id=sus>Suspended</h2><br></br><h2 id=inv>Inverted</h2><br></br><h2 id=fly>Flying</h2><br></br><h2 id=win>Wing</h2><br></br><h2 id=bobs>Bobsled</h2><br></br><h2 id=sta>Stand Up</h2><br></br><h2 id=pip>Pipeline</h2><br></br><h2 id=sitd>Sit Down</h2>',
-
-            }]
-            })
-        ],
         });
         
         chart.on('draw', function(data) {
-            if(data.type === 'slice' && data.index ==0) {
-                var pathLength = data.element._node.getTotalLength();
+        if(data.type === 'slice') {
+            var pathLength = data.element._node.getTotalLength();
 
-                data.element.attr({
-                'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-                });
-            
-                var animationDefinition = {
-                'stroke-dashoffset': {
-                    id: 'anim' + data.index,
-                    dur: 1000,
-                    from: -pathLength + 'px',
-                    to:  '0px',
-                    easing: Chartist.Svg.Easing.easeOutQuint,
-                    fill: 'freeze'
-                }
+            data.element.attr({
+            'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+            });
+        
+            var animationDefinition = {
+            'stroke-dashoffset': {
+                id: 'anim' + data.index,
+                dur: 1000,
+                from: -pathLength + 'px',
+                to:  '0px',
+                easing: Chartist.Svg.Easing.easeOutQuint,
+                fill: 'freeze'
+            }
             };
         
             if(data.index !== 0) {
@@ -204,7 +209,7 @@ function getData() {
             });
 
             data.element.animate(animationDefinition, false);
-            }
+        }
             });
             
             chart.on('created', function() {
@@ -214,22 +219,23 @@ function getData() {
             }
             window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
             });
-            } else if (dataset == 'typePiePlot') {
-                var steelCounter = 0;
-                var woodCounter = 0;
+    }
+    else if (dataset == 'typePiePlot') {
+        var steelCounter = 0;
+        var woodCounter = 0;
 
-                function typeCounter(testCounter) {
-                    console.log('Test Before!')
-                    for (var i = 0; i < testCounter.length; i++) {
-                        var typer = testCounter[i]['Type'];
+        function typeCounter(testCounter) {
+            console.log('Test Before!')
+            for (var i = 0; i < testCounter.length; i++) {
+                var typer = testCounter[i]['Type'];
 
-                        if (typer === 'Steel') {
-                            steelCounter += 1;
-                        } else if (typer === 'Wood') {
-                            woodCounter += 1;
-                        } 
-                }
+                if (typer === 'Steel') {
+                    steelCounter += 1;
+                } else if (typer === 'Wood') {
+                    woodCounter += 1;
+                } 
             }
+        }
         
         typeCounter(coasterData);
         console.log(`Steel Coasters: ${steelCounter}`);
