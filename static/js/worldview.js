@@ -16,7 +16,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 // Use this link to get the geojson data.
-var link = "Project2/static/data/worldview.geojson";
+var link = "../static/data/worldview.geojson";
 
 function getColor(Density) {
     return Density > 5 ? 'darkblue' :
