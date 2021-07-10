@@ -23,8 +23,11 @@ var drops_url = "https://how-we-roll.herokuapp.com/api/records/drop_geo"
 
 $.getJSON(drops_url, function (geojson) {
     var geojsonLayer = L.geoJson(geojson, {
-        style: function (feature) {
-        }
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup('<h1>'+feature.properties['Roller Coaster']+'</h1><p>name: ');
+      },
+      style: function (feature) {
+      }
     }).addTo(myMap);
     controlLayers.addOverlay(geojsonLayer, "Drop Record Holders");
 });
