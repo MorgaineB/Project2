@@ -49,56 +49,56 @@ function init() {
             labels: ['Suspended', 'Inverted', 'Flying', 'Wing', 'Bobsled', 'Stand Up', 'Pipeline', 'Sit Down'],
             series: [suspendedCounter, invertedCounter, flyingCounter, wingCounter, bobsledCounter, standUpCounter, pipelineCounter, sitdownCounter],
         }, {
-        donut: true,
-        showLabel: false,
-        plugins: [
-            Chartist.plugins.fillDonut({
-                items: [{
-                    content: '<h3>Different Roller Coaster Designs</h3><br></br><h2 id=sus>Suspended</h2><br></br><h2 id=inv>Inverted</h2><br></br><h2 id=fly>Flying</h2><br></br><h2 id=win>Wing</h2><br></br><h2 id=bobs>Bobsled</h2><br></br><h2 id=sta>Stand Up</h2><br></br><h2 id=pip>Pipeline</h2><br></br><h2 id=sitd>Sit Down</h2>',
+            donut: true,
+            showLabel: false,
+            plugins: [
+                Chartist.plugins.fillDonut({
+                    items: [{
+                        content: '<h3>Different Roller Coaster Designs</h3><br></br><h2 id=sus>Suspended</h2><br></br><h2 id=inv>Inverted</h2><br></br><h2 id=fly>Flying</h2><br></br><h2 id=win>Wing</h2><br></br><h2 id=bobs>Bobsled</h2><br></br><h2 id=sta>Stand Up</h2><br></br><h2 id=pip>Pipeline</h2><br></br><h2 id=sitd>Sit Down</h2>',
 
-            }]
-            })
-        ],
+                    }]
+                })
+            ],
         });
         
         chart.on('draw', function(data) {
-        if(data.type === 'slice' && data.index === 0) {
-            var pathLength = data.element._node.getTotalLength();
+            if(data.type === 'slice' && data.index === 0) {
+                var pathLength = data.element._node.getTotalLength();
 
-            data.element.attr({
-                'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-            });
-        
-            var animationDefinition = {
-                'stroke-dashoffset': {
-                    id: 'anim' + data.index,
-                    dur: 1000,
-                    from: -pathLength + 'px',
-                    to:  '0px',
-                    easing: Chartist.Svg.Easing.easeOutQuint,
-                    fill: 'freeze'
+                data.element.attr({
+                    'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+                });
+            
+                var animationDefinition = {
+                    'stroke-dashoffset': {
+                        id: 'anim' + data.index,
+                        dur: 1200,
+                        from: -pathLength + 'px',
+                        to:  '0px',
+                        easing: Chartist.Svg.Easing.easeOutQuint,
+                        fill: 'freeze'
+                    }
+                };
+            
+                if(data.index !== 0) {
+                animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
                 }
-            };
-        
-            if(data.index !== 0) {
-            animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+
+                data.element.attr({
+                    'stroke-dashoffset': -pathLength + 'px'
+                });
+
+                data.element.animate(animationDefinition, true);
             }
-
-            data.element.attr({
-                'stroke-dashoffset': -pathLength + 'px'
-            });
-
-            data.element.animate(animationDefinition, true);
-        }
-          });
+        });
           
-          chart.on('created', function() {
-            if(window.__anim21278907124) {
-              clearTimeout(window.__anim21278907124);
-              window.__anim21278907124 = null;
-            }
-            window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
-          });
+        chart.on('created', function() {
+        if(window.__anim21278907124) {
+            clearTimeout(window.__anim21278907124);
+            window.__anim21278907124 = null;
+        }
+        window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+        });
 
     })
 }
