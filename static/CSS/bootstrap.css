@@ -50,6 +50,38 @@
     scroll-behavior: smooth;
   }
 }
+#sus {
+  color: #d70206
+}
+
+#inv {
+  color: #f05b4f
+}
+
+#fly {
+  color: #f4c63d
+}
+
+#win{
+  color: #d17905
+}
+
+#bobs {
+  color: #453d3f
+}
+
+#sta {
+  color: #59922b
+}
+
+#pip {
+  color: #0544d3
+}
+
+#sitd {
+  color: #6b0392
+}
+
 
 #navBar {
   background-color: rgba(255,255,212,0.66);
