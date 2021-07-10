@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "City": "Kuwana", "Rank": "1st", "Length": "8133.2 ft", "Roller Coaster": "Steel Dragon 2000", "Amusement Park": "Nagashima Spa Land ", "State": " Mie", "Country": " Japan" }, "geometry": { "type": "Point", "coordinates": [ 136.648635864257812, 35.047143524385589 ] } },
+{ "type": "Feature", "properties": { "City": "Mason", "Rank": "2nd", "Length": "7359 ft", "Roller Coaster": "Beast", "Amusement Park": "Kings Island ", "State": " Ohio", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -84.309940338134766, 39.360714337178585 ] } },
+{ "type": "Feature", "properties": { "City": "Fujiyoshida", "Rank": "3rd", "Length": "6708.7 ft", "Roller Coaster": "Fujiyama", "Amusement Park": "Fuji-Q Highland ", "State": " Yamanashi", "Country": " Japan" }, "geometry": { "type": "Point", "coordinates": [ 138.832855224609375, 35.481919872728007 ] } },
+{ "type": "Feature", "properties": { "City": "Charlotte", "Rank": "4th", "Length": "6602 ft", "Roller Coaster": "Fury 325", "Amusement Park": "Carowinds ", "State": " North Carolina", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -80.844268798828111, 35.227672354935862 ] } },
+{ "type": "Feature", "properties": { "City": "Sandusky", "Rank": "5th", "Length": "6595 ft", "Roller Coaster": "Millennium Force", "Amusement Park": "Cedar Point ", "State": " Ohio", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -82.705421447753906, 41.449674747675431 ] } },
+{ "type": "Feature", "properties": { "City": "Sandusky", "Rank": "10th", "Length": "5740 ft", "Roller Coaster": "Steel Vengeance", "Amusement Park": "Cedar Point ", "State": " Ohio", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -82.714691162109361, 41.450446742854702 ] } },
+{ "type": "Feature", "properties": { "City": "Abu Dhabi", "Rank": "6th", "Length": "6561.7 ft", "Roller Coaster": "Formula Rossa", "Amusement Park": "Ferrari World Abu Dhabi ", "State": " Abu Dhabi", "Country": " United Arab Emirates" }, "geometry": { "type": "Point", "coordinates": [ 54.36859130859375, 24.479649723637884 ] } },
+{ "type": "Feature", "properties": { "City": "Santa Claus", "Rank": "7th", "Length": "6442 ft", "Roller Coaster": "Voyage", "Amusement Park": "Holiday World ", "State": " Indiana", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -86.914043426513672, 38.120242794961158 ] } },
+{ "type": "Feature", "properties": { "City": "Anaheim", "Rank": "8th", "Length": "6072 ft", "Roller Coaster": "Incredicoaster", "Amusement Park": "Disney California Adventure Park ", "State": " California", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -117.912826538085938, 33.835060677075582 ] } },
+{ "type": "Feature", "properties": { "City": "Primm", "Rank": "9th", "Length": "5843 ft", "Roller Coaster": "Desperado", "Amusement Park": "Buffalo Bill's Resort & Casino ", "State": " Nevada", "Country": " United States" }, "geometry": { "type": "Point", "coordinates": [ -115.38665771484375, 35.612650818756698 ] } }
+]
+}
