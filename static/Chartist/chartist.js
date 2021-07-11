@@ -233,6 +233,10 @@ function getData() {
             },{
                 title:"Be sure to check the glossary for any terminology you don't understand."
             }]
+
+            d3.select("thead")
+            .selectAll("tr")
+            .remove()
         
             d3.select("thead")
             .selectAll("tr")
