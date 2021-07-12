@@ -7,7 +7,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/CSS/bootstrap.css">
-  <link rel="stylesheet" href="../static/CSS/styless.css">
 </head>
 
 <body>
@@ -25,9 +24,8 @@
               Visualizations
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="international.html">International Data</a>
-              <a class="dropdown-item" href="multiplots.html">Bar Graphs</a>
               <a class="dropdown-item" href="chartist.html">Animated Pie Plots</a>
+              <a class="dropdown-item" href="international.html">International Data</a>
               <a class="dropdown-item" href="recordholders.html">Record Holders</a>
             </div>
           </li>
@@ -37,11 +35,16 @@
           <li class="nav-item">
             <a class="nav-link" href="about.html">The Team</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="glossary.html">Glossary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="API.html">API</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <div class="container">
     <div class="jumbotron2">
         <h3>Interactive Bar Graphs</h3>
@@ -52,27 +55,44 @@
                         <tr><th> Hover over each chart to see more information.</th></tr>
                     </thead>
                     <tbody>
-                    <td>Be sure to check the glossary for any terminology you don't understand.</td>
+                    <td>Be sure to check the <a href="https://how-we-roll.herokuapp.com/glossary.html">glossary</a> for any terminology you don't understand.</td>
                     </tbody>
                 </table>
               </div>
           </div>
     </div>
   </div>
-
-  <footer class="page-footer font-small blue pt-4">
-    <div class="container-fluid text-center text-md-left">
-        <div class="row">
-            <p>Thank you for catching a ride with us!</p>
-        </div>
-        <hr class="clearfix w-100 d-md-none pb-3">
-
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-this-is-how-we-roll-jkhhc/embed/charts?id=312fa8bf-711e-4f3c-b6cf-f1ea643e1147&theme=light"></iframe>
+  </div>
+  <div class="col-lg-6">
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-this-is-how-we-roll-jkhhc/embed/charts?id=825c9e13-6726-4220-8eb5-19e946e488b7&autoRefresh=3600&theme=light"></iframe>  </div>
     </div>
-    <div class="footer-copyright text-center py-3">Project Github: 
-        <a href="https://github.com/MorgaineB/Project2"> github.com</a>
+    <div class="row">
+      <div class="col-lg-6">
+        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-this-is-how-we-roll-jkhhc/embed/charts?id=6a42c315-76af-45ab-aa8e-e1cb9cd22272&autoRefresh=3600&theme=light"></iframe>
+      </div>
+      <div class="col-lg-6">
+        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-this-is-how-we-roll-jkhhc/embed/charts?id=9160f5bc-d8b9-4db0-bffa-4ba6118b5e79&autoRefresh=3600&theme=light"></iframe>
     </div>
-    </footer>  
-
+  </div>
+  </div>
 </body>
+
+<footer class="page-footer font-small blue pt-4">
+  <div class="container-fluid text-center text-md-left">
+      <div class="row">
+          <p>Thank you for catching a ride with us!</p>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+  </div>
+  <div class="footer-copyright text-center py-3">Project Github: 
+      <a href="https://github.com/MorgaineB/Project2"> github.com</a>
+  </div>
+  </footer>  
 
 </html>

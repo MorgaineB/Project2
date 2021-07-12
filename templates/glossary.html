@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RollerCoasters</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/CSS/bootstrap.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navBar'>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">🎢</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Visualizations
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="chartist.html">Animated Pie Plots</a>
+                <a class="dropdown-item" href="multiplots.html">Bar Graphs</a>
+                <a class="dropdown-item" href="international.html">International Data</a>
+                <a class="dropdown-item" href="recordholders.html">Record Holders</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">The Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="API.html">API</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+      <br>
+      <div class="row">
+          <h1>Glossary of Terms</h1>
+      </div>
+      <br>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Coaster Type
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <ul>
+                  <li><strong>Steel</strong>: The original rollercoaster. The world’s first wooden rollercoaster opened to the public in 1804 in Paris, France. Most wooden rollercoasters have running rails made of flattened steel strips mounted on a laminated wooden track. Many wooden rollercoasters have wooden support structures, but not all. In some cases, steel supports and trusses are also used.</li>
+                  <br>
+                  <li><strong>Wood</strong>: The modern rollercoaster. Steel rollercoasters run on tracks made entirely of tubular steel and have steel support structures. The world’s first steel rollercoaster was opened in Disneyland Park in 1959. The introduction of steel tracks revolutionised the industry and was the most significant change to rollercoaster design since the 1800s.</li>
+                  <br>
+                  <li><strong>Hybrid</strong>: Hold on to your hats, everyone. The new generation of rollercoasters is officially here. Hybrid rollercoasters combine smooth steel tracks with traditional wooden structures, giving riders all the fun of the ‘wooden wobble’, with a far smoother, less bumpy ride.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Coaster Design
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+                <ul>
+                    <li><strong>Sit Down</strong>: The traditional coaster design, with riders sitting inside a car.
+                    </li>
+                <br>
+                    <li><strong>Inverted</strong>: Coaster in which the train runs under the track with the seats directly attached to the wheel carriage. This latter attribute is what sets it apart from the older suspended coaster, which runs under the track, but swings via a pivoting bar attached to the wheel carriage. Inverted coasters are notable for their reversed orientation compared to a traditional roller coaster, with the legs rather than the arms exposed.
+                    </li>
+                <br>
+                    <li><strong>Suspended</strong>: Coaster using trains which travel beneath the track and pivot on a swinging arm from side to side, exaggerating the track's banks and turns.</li>
+                <br>
+                    <li><strong>Wing</strong>: Coaster differs from many traditional steel roller coasters in that its trains are not located above or below the track but rather on the sides, a configuration that gives riders the impression of free flight.</li>
+                <br>
+                    <li><strong>Flying</strong>: Coaster is meant to simulate the sensations of flight by harnessing riders in a prone position during the duration of the ride. The roller coaster cars are suspended below the track, with riders secured such that their backs are parallel to the track.</li>
+                <br>
+                    <li><strong>Stand-Up</strong>: Coaster features trains with cars that are ridden in a standing position. These rides are generally very intense and often carry a higher height restriction than most roller coasters.</li>
+                <br>
+                    <li><strong>Bobsled</strong>: Coaster that uses a track design that is essentially a "pipe" with the top half removed and has cars that are sent down this pipe in a freewheeling mode. The name derives from the great similarity to the track design used for the winter sport of bobsleigh.</li>
+                <br>
+                    <li><strong>Pipeline</strong>: Coaster model where the trains ride between the tracks as opposed to a traditional roller coaster where they ride above them. The concept was first developed by Japanese ride company TOGO, and was known as the Ultra Twister.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            Thrill-Scale
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+                <p>The<strong> Roller Coaster Thrill-Scale</strong> uses a rating system of <strong>1 to 5</strong>, with classifications ranging respectively from <strong>Tame</strong> to <strong>Extreme</strong>.</p>
+                <ol>
+                    <li><strong>Tame</strong>: Small, Compact Roller Coasters and Kiddie Coasters
+                        <ul>
+                            <li><i>For Riders:</i> Kids, parents with their kids, novices, and desperate coaster enthusiasts trying to increase their coaster count.</li>
+                            <li><i>Examples:</i> Taxi Jam at Kings Dominion, Percy’s Railway at Six Flags Magic Mountain, Blackbeard’s Lost Treasure Train at Six Flags Great Adventure, Catwoman’s Whip at Six Flags New England.</li>
+                        </ul>
+                    </li>
+                <br>
+                    <li><strong>Traditional</strong>: Old-School Run of the Mill Woodies & Smaller Steel Coasters
+                        <ul>
+                            <li><i>For Riders:</i> A large portion of the general public as well as all coaster fans will be candidates for these roller coasters.</li>
+                            <li><i>Examples:</i> Thunderhead at Dollywood, Racer at Kings Island, Phoenix at Knoebels, Twister at Knoebels, Big Thunder Mountain Disney World.</li>
+                        </ul>
+                    </li>
+                <br>
+                    <li><strong>Thrilling</strong>: Contains 1 Thrill Factor (Loops, Launch)
+                        <ul>
+                            <li><i>For Riders:</i> General public visitors with a little more bravery.</li>
+                            <li><i>Examples:</i> Mindbender at Six Flags Over Georgia, Anaconda at Kings Dominion, Italian Job (Backlot Stunt) Coasters at Kings Dominion & Kings Island, Carolina Cobra at Carowinds, Pony Express at Knott’s Berry Farm</li>
+                        </ul>
+                    </li>
+                <br>
+                    <li><strong>Intense</strong>: Contains 2 Thrill Factors (High Speeds, Loops, G-Forces, Height) 
+                        <ul>
+                            <li><i>For Riders:</i> Expect fewer general public riders on these coasters.</li>
+                            <li><i>Examples:</i> Stormrunner at Hersheypark, Griffon at Busch Gardens Europe, Volcano at Kings Dominion, Goliath at Six Flags Over Georgia & Magic Mountain, Superman Ride of Steel at Six Flags America, Millennium Force at Cedar Point.</li>
+                        </ul>
+                    </li>
+                <br>
+                    <li><strong>Extreme</strong>: Coaster is meant to simulate the sensations of flight by harnessing riders in a prone position during the duration of the ride. The roller coaster cars are suspended below the track, with riders secured such that their backs are parallel to the track.
+                        <ul>
+                            <li><i>For Riders:</i> Only thrill seekers and coaster enthusiasts need apply.</li>
+                            <li><i>Examples:</i> X2 at Six Flags Magic Mountain, Kingda Ka at Six Flags Great Adventure, Tatsu at Six Flags Magic Mountain, Top Thrill Dragster at Cedar Point.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                Coaster Status
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+              <div class="accordion-body">
+                <ul>
+                    <li><strong>Operating</strong>: Currently, fully functional and operating coaster for riders to enjoy the thrill.</li>
+                    <br>
+                    <li><strong>In-Storage</strong>: Currently, not operational and potentially being set for relocation or re-engineering.</li>
+                    <br>
+                    <li><strong>Under Construction</strong>: Hold on to your hats, everyone. The new generation of rollercoasters is officially here. Hybrid rollercoasters combine smooth steel tracks with traditional wooden structures, giving riders all the fun of the ‘wooden wobble’, with a far smoother, less bumpy ride.</li>
+                    <br>
+                    <li><strong>SNBO</strong>: Standing but no longer operating.</li>
+                    <br>
+                    <li><strong>Relocated</strong>: Currently, being relocated to another amusement park.</li>
+                    <br>
+                    <li><strong>Unknown</strong>: Status of coaster is unknown due access to amusement park data.</li>  
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</body>
+<br>
+<br>
+<footer class="page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <p>Thank you for catching a ride with us!</p>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+    </div>
+    <div class="footer-copyright text-center py-3">Project Github: 
+        <a href="https://github.com/MorgaineB/Project2"> github.com</a>
+    </div>
+</footer>
+
+</html>
